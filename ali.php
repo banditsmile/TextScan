@@ -2,7 +2,9 @@
 
 class TextScan
 {
+    //在这里填写accessKey
     private $accessKey = '';
+    //在这里填写accessSecret
     private $accessSecret = '';
     private $baseUrl = 'https://green.cn-shenzhen.aliyuncs.com';
     private $signDate;
@@ -11,6 +13,7 @@ class TextScan
         $this->signDate = gmdate ('D, d M Y H:i:s \G\M\T');
     }
 
+    //获取详细的接口调用结果
     public function scan($text)
     {
         $apiUrl = '/green/text/scan';
@@ -23,6 +26,8 @@ class TextScan
     }
 
     /**
+     * 返回是否通过检测
+     *
      * @param string $text 待审核文本
      * @return int 审核结果-1审核不通过,0待人工审查1审核通过
      */
@@ -57,6 +62,10 @@ class TextScan
         return $status;
     }
 
+    /**
+    *自定义关键词的检测，有些关键词在阿里云后台添加了也没效果
+    *
+    */
     private function selfCheck($text)
     {
         $words=['毒品'];
