@@ -3,7 +3,9 @@
 
 class TextScan
 {
+    //在这里输入secretId
     private $secretId = '';
+    //在这里输入secretKey
     private $secretKey = '';
     private $host = "tms.tencentcloudapi.com";
     private $service = "tms";
